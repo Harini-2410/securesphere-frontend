@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import OTPPage from './OTPPage';
+import QRPage from './QRPage';
 
 function UploadPage() {
   return (
@@ -43,6 +44,7 @@ function App() {
       <Routes>
         <Route path="/" element={<UploadPage />} />
         <Route path="/otp" element={<OTPPage />} />
+        <Route path="/qr" element={<QRPage />} />
       </Routes>
     </BrowserRouter>
   );
