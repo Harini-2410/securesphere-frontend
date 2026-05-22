@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import OTPPage from './OTPPage';
+import FileViewPage from './FileViewPage';
 import QRPage from './QRPage';
-
+ import OTPPage from './OTPPage';
 function UploadPage() {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#0d0d1a", padding: "40px", fontFamily: "Arial", display: "flex", flexDirection: "column", alignItems: "center" }}>
@@ -45,6 +45,7 @@ function App() {
         <Route path="/" element={<UploadPage />} />
         <Route path="/otp" element={<OTPPage />} />
         <Route path="/qr" element={<QRPage />} />
+        <Route path="/file" element={<FileViewPage />} />
       </Routes>
     </BrowserRouter>
   );
