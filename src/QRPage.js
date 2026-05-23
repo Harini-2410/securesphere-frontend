@@ -21,13 +21,9 @@ function QRPage() {
         <p style={{ color: "#555", marginTop: "16px", fontSize: "13px" }}>
           https://securesphere.app/file/abc123
         </p>
-
-        <button style={{ marginTop: "20px", width: "100%", padding: "14px",
-        background: "linear-gradient(90deg, #00d4ff, #0077ff)",
-        color: "white", border: "none", borderRadius: "8px",
-        fontSize: "16px", cursor: "pointer", fontWeight: "bold" }}>
-          📋 COPY LINK
-        </button>
+      <button onClick={() => window.location.href='/otp'} style={{ marginTop: "20px", width: "100%", padding: "14px", background: "linear-gradient(90deg, #00d4ff, #0077ff)", color: "white", border: "none", borderRadius: "8px", fontSize: "16px", cursor: "pointer", fontWeight: "bold" }}>
+  📋 COPY LINK
+</button>
 
       </div>
     </div>

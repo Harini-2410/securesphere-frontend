@@ -55,6 +55,14 @@ function FileViewPage() {
           pointerEvents: "none" }} />
 
         </div>
+        <button 
+          onClick={() => window.location.href='/dashboard'} 
+          style={{ marginTop: "20px", width: "100%", padding: "14px", 
+          background: "linear-gradient(90deg, #ff0000, #aa0000)", 
+          color: "white", border: "none", borderRadius: "8px", 
+          fontSize: "16px", cursor: "pointer", fontWeight: "bold" }}>
+          📊 GO TO DASHBOARD
+        </button>
 
       </div>
     </div>

@@ -31,13 +31,9 @@ function OTPPage() {
         style={{ width: "100%", padding: "12px", marginTop: "20px", 
         borderRadius: "8px", border: "1px solid #333", 
         backgroundColor: "#0d0d1a", color: "#fff", boxSizing: "border-box" }} />
-
-        <button style={{ marginTop: "16px", width: "100%", padding: "14px", 
-        background: "linear-gradient(90deg, #00d4ff, #0077ff)", 
-        color: "white", border: "none", borderRadius: "8px", 
-        fontSize: "16px", cursor: "pointer", fontWeight: "bold" }}>
-          ✅ VERIFY & ACCESS FILE
-        </button>
+      <button onClick={() => window.location.href='/file'} style={{ marginTop: "16px", width: "100%", padding: "14px", background: "linear-gradient(90deg, #00d4ff, #0077ff)", color: "white", border: "none", borderRadius: "8px", fontSize: "16px", cursor: "pointer", fontWeight: "bold" }}>
+  ✅ VERIFY & ACCESS FILE
+</button>
 
       </div>
     </div>

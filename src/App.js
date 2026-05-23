@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import Dashboard from './Dashboard';
 import FileViewPage from './FileViewPage';
 import QRPage from './QRPage';
  import OTPPage from './OTPPage';
@@ -29,9 +30,9 @@ function UploadPage() {
           <input type="number" placeholder="e.g. 3" style={{ width: "100%", padding: "12px", marginTop: "8px", borderRadius: "8px", border: "1px solid #333", backgroundColor: "#0d0d1a", color: "#fff", fontSize: "14px", boxSizing: "border-box" }} />
         </div>
 
-        <button style={{ marginTop: "30px", width: "100%", padding: "14px", background: "linear-gradient(90deg, #00d4ff, #0077ff)", color: "white", border: "none", borderRadius: "8px", fontSize: "16px", cursor: "pointer", fontWeight: "bold", letterSpacing: "1px" }}>
-          🔗 GENERATE SECURE LINK
-        </button>
+       <button onClick={() => window.location.href='/qr'} style={{ marginTop: "30px", width: "100%", padding: "14px", background: "linear-gradient(90deg, #00d4ff, #0077ff)", color: "white", border: "none", borderRadius: "8px", fontSize: "16px", cursor: "pointer", fontWeight: "bold", letterSpacing: "1px" }}>
+  🔗 GENERATE SECURE LINK
+</button>
 
       </div>
     </div>
@@ -46,6 +47,7 @@ function App() {
         <Route path="/otp" element={<OTPPage />} />
         <Route path="/qr" element={<QRPage />} />
         <Route path="/file" element={<FileViewPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );
