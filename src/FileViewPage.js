@@ -8,14 +8,14 @@ function FileViewPage() {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     
-    // Watermark text
     ctx.font = '20px Arial';
     ctx.fillStyle = 'rgba(255, 0, 0, 0.3)';
     ctx.rotate(-0.4);
     
-    // Draw watermark multiple times diagonally
     for (let i = 0; i < 6; i++) {
-      ctx.fillText('Harini • harini@gmail.com • 22-May-2026', 
+      const today = new Date().toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+      const email = localStorage.getItem('receiverEmail') || 'receiver@email.com';
+      ctx.fillText(`Receiver • ${email} • ${today}`, 
         -100 + (i * 100), 200 + (i * 150));
     }
   }, []);
@@ -36,12 +36,10 @@ function FileViewPage() {
           This file is protected. Your identity is watermarked.
         </p>
 
-        {/* File content + watermark */}
         <div style={{ position: "relative", marginTop: "30px",
         backgroundColor: "#fff", borderRadius: "8px", 
         minHeight: "400px", overflow: "hidden" }}>
           
-          {/* Fake document content */}
           <div style={{ padding: "40px", color: "#333" }}>
             <h2>Confidential Document</h2>
             <p>This is a secure file shared via SecureSphere.</p>
@@ -49,12 +47,12 @@ function FileViewPage() {
             <p>Any unauthorized sharing will be traced back to you.</p>
           </div>
 
-          {/* Canvas watermark on top */}
           <canvas ref={canvasRef} width={700} height={400}
           style={{ position: "absolute", top: 0, left: 0, 
           pointerEvents: "none" }} />
 
         </div>
+
         <button 
           onClick={() => window.location.href='/dashboard'} 
           style={{ marginTop: "20px", width: "100%", padding: "14px", 
