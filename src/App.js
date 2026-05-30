@@ -19,7 +19,7 @@ function UploadPage() {
 
     const token = localStorage.getItem('token');
     if (!token) {
-      alert('Please login first!');
+      alert('please login first!');
       window.location.href = '/login';
       return;
     }
@@ -30,31 +30,38 @@ function UploadPage() {
     formData.append('maxDownloads', downloads);
 
     try {
-  setLoading(true);
-  const response = await axios.post(
-    'http://localhost:5000/api/files/upload',
-    formData,
-    { headers: { 'Authorization': `Bearer ${token}` } }
-  );
-  
-  alert('Response: ' + JSON.stringify(response.data));
-  
-  const fileId = response.data.file.fileId;
-  localStorage.setItem('fileId', fileId);
-  window.location.href = '/qr';
+      setLoading(true);
+      const response = await axios.post(
+        'http://localhost:5000/api/files/upload',
+        formData,
+        { headers: { 'Authorization': `Bearer ${token}` } }
+      );
+      
+      const fileId = response.data.file.fileId;
+      localStorage.setItem('fileId', fileId);
+      window.location.href = '/qr';
 
-} catch (error) {
-  alert('Error: ' + JSON.stringify(error.response?.data));
-} finally {
-  setLoading(false);
-}  
+    } catch (error) {
+      if (error.response?.data?.message === 'Invalid token. Please login again.') {
+  alert('Session expired! Please login again.');
+  window.location.href = '/login';
+} else {
+        alert('Upload failed! Make sure backend is running.');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#0d0d1a", padding: "40px", fontFamily: "Arial", display: "flex", flexDirection: "column", alignItems: "center" }}>
       
       <div style={{ textAlign: "center", marginBottom: "40px" }}>
-        <h1 style={{ color: "#00d4ff", fontSize: "36px", margin: 0 }}>🔒 SecureSphere</h1>
+        <h1 
+          onClick={() => window.location.href='/login'}
+          style={{ color: "#00d4ff", fontSize: "36px", margin: 0, cursor: "pointer" }}>
+          🔒 SecureSphere
+        </h1>
         <p style={{ color: "#888", marginTop: "8px" }}>Share files securely. No leaks. No traces.</p>
       </div>
 
